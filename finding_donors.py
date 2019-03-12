@@ -42,7 +42,7 @@ n_greater_50k = data['age'][data['income'] != '<=50K'].count()
 n_at_most_50k = data['age'][data['income'] == '<=50K'].count()
 
 # TODO: Percentage of individuals whose income is more than $50,000
-greater_percent = None
+greater_percent = (n_greater_50k/n_records) * 100
 
 # Print the results
 print("Total number of records: {}".format(n_records))
