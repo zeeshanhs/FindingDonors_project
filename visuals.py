@@ -5,7 +5,7 @@ import warnings
 warnings.filterwarnings("ignore", category = UserWarning, module = "matplotlib")
 #
 # Display inline matplotlib plots with IPython
-from IPython import get_ipython
+# from IPython import get_ipython
 # get_ipython().run_line_magic('matplotlib', 'inline')
 ###########################################
 
@@ -23,7 +23,7 @@ def distribution(data, transformed = False):
     """
     
     # Create figure
-    fig = pl.figure(figsize = (11,5));
+    fig = pl.figure(figsize = (11,5))
 
     # Skewed feature plotting
     for i, feature in enumerate(['capital-gain','capital-loss']):
