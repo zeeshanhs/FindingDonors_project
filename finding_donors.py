@@ -82,3 +82,15 @@ features_log_minmax_transform[numerical] = scaler.fit_transform(features_log_tra
 # Show an example of a record with scaling applied
 display(features_log_minmax_transform.head(n = 5))
 
+# TODO: One-hot encode the 'features_log_minmax_transform' data using pandas.get_dummies()
+features_final = pd.get_dummies(features_log_minmax_transform)
+
+# TODO: Encode the 'income_raw' data to numerical values
+income = pd.get_dummies(income_raw)
+
+# Print the number of features after one-hot encoding
+encoded = list(features_final.columns)
+print("{} total features after one-hot encoding.".format(len(encoded)))
+
+# Uncomment the following line to see the encoded feature names
+print(encoded)
