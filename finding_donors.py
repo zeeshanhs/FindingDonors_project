@@ -17,9 +17,9 @@ from sklearn.metrics import f1_score
 
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
-from sklearn.datasets import load_digits
 from sklearn.model_selection import learning_curve
 from sklearn.model_selection import ShuffleSplit
+from IPython import get_ipython
 
 from IPython.display import display # Allows the use of display() for DataFrames
 
@@ -60,4 +60,12 @@ income_raw = data['income']
 features_raw = data.drop('income', axis = 1)
 
 # Visualize skewed continuous features of original data
-vs.distribution(data)
+# vs.distribution(data)
+
+# Log-transform the skewed features
+skewed = ['capital-gain', 'capital-loss']
+features_log_transformed = pd.DataFrame(data = features_raw)
+features_log_transformed[skewed] = features_raw[skewed].apply(lambda x: np.log(x + 1))
+
+# Visualize the new log distributions
+# vs.distribution(features_log_transformed, transformed = True)
