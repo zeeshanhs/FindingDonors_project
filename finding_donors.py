@@ -21,6 +21,11 @@ from sklearn.datasets import load_digits
 from sklearn.model_selection import learning_curve
 from sklearn.model_selection import ShuffleSplit
 
+from IPython.display import display # Allows the use of display() for DataFrames
+
+# Import supplementary visualizations code visuals.py
+import visuals as vs
+
 
 
 
@@ -49,3 +54,10 @@ print("Total number of records: {}".format(n_records))
 print("Individuals making more than $50,000: {}".format(n_greater_50k))
 print("Individuals making at most $50,000: {}".format(n_at_most_50k))
 print("Percentage of individuals making more than $50,000: {}%".format(greater_percent))
+
+# Split the data into features and target label
+income_raw = data['income']
+features_raw = data.drop('income', axis = 1)
+
+# Visualize skewed continuous features of original data
+vs.distribution(data)
